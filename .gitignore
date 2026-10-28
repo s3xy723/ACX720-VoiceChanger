@@ -73,3 +73,8 @@ _cleanup_*/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# ---------------------------------------------------------------- 上传辅助
+# _submit/ 放的是 bundle / 源码 zip / token.txt，都是本地用的一次性文件。
+# token.txt 绝不能被提交，所以整个目录一起忽略。
+_submit/

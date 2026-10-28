@@ -58,6 +58,7 @@
 | `dist/` | **最终产物**（文件夹版 exe） | 见下；`.gitignore` 已排除 —— **克隆后没有这个目录**，按 `host/build_exe.bat` 自己打一份即可 |
 | `LICENSE` | MIT | |
 | `.gitignore` | 构建产物 / 运行日志 / 大文件的忽略规则 | |
+| `一键提交到GitHub.bat` | 建仓库 + 首次推送（需一个 `repo` 权限的令牌） | 见 0.1 节；实际逻辑在 `tool/push_to_github.py` |
 | `_cleanup_20261028/` | 本次整理移出的旧包、构建中间目录、评测音频 | 确认无误后可整目录删除 |
 
 构建中间产物（`build_onedir/`、`build_pw/`、`work/`、`__pycache__/`、`xsim.dir/`）
@@ -84,6 +85,29 @@
 3. 用 onedir 而不是 onefile：单文件版每次启动要往 `%TEMP%\_MEIxxxx` 解压，
    某些机器（杀软 / 临时目录策略）直接弹 `Could not create temporary directory!`。
 4. 想连 AI 完整版一起打：`build_exe.bat ai`（`dist_ai/`，约 4.8 GB，自带 torch）。
+
+---
+
+## 0.1 把本仓库推到你自己的 GitHub
+
+GitHub 的写操作必须用账号凭据，没有匿名推送的通道。一次性配置好后，
+以后只需要 `git push`：
+
+1. 打开 <https://github.com/settings/tokens> → **Generate new token (classic)**
+2. 权限只勾 **`repo`**（创建仓库 + 推送都在这个范围），有效期选 7 天即可
+3. 复制生成的 `ghp_...`，然后**双击仓库根目录的 `一键提交到GitHub.bat`**，
+   按提示粘贴（不回显、不落盘、不写进 `.git/config`）
+
+脚本会自动完成：校验令牌 → 建仓库 → 推送 `main` → 校验远端头提交，
+最后打印仓库地址。非交互场景也可以：
+
+```bash
+set GITHUB_TOKEN=ghp_xxx
+python tool/push_to_github.py            # 默认仓库名 ACX720-VoiceChanger
+python tool/push_to_github.py --private  # 建成私有
+```
+
+推完建议把那个令牌删掉。若换了仓库名，记得同步 `git remote set-url`。
 
 ---
 
