@@ -25,9 +25,12 @@ rem      To regenerate:  pyinstaller host_app.py --exclude-module ...
 rem                      python tool_patch_spec.py ACX720VoiceChanger.spec
 rem  ------------------------------------------------------------------
 
-set PY=C:/Users/s3xy/.workbuddy/binaries/python/envs/py314/Scripts/python.exe
-if not exist "%PY%" set PY=C:/Users/Administrator/.dsh/dsh-runtimes/dsh-primary-runtime/dependencies/python/python.exe
-if not exist "%PY%" set PY=python
+rem  Packager interpreter: taken from PATH by default.
+rem  To use a specific one, run:  set AVC_PYTHON=<full path to python.exe>
+rem  (This used to hard-code two machine-specific paths, which made the
+rem   script fail on any other computer.)
+if defined AVC_PYTHON set PY=%AVC_PYTHON%
+if not defined PY set PY=python
 if /I not "%PY%"=="python" if not exist "%PY%" (
     echo Python for packaging not found: %PY%
     echo Edit the PY variable in this file.

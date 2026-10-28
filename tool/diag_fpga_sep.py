@@ -114,7 +114,10 @@ def main():
     ap.add_argument("--chunk", type=float, default=2.0)
     a = ap.parse_args()
 
-    src = a.wav or r"C:/Users/Administrator/Downloads/老狼&王婧_想把我唱给你听.flac"
+    if not a.wav:
+        ap.error("请给出待诊断的音频路径，例如："
+                 "python tool/diag_fpga_sep.py 你的歌.wav --start 0.6 --secs 20")
+    src = a.wav
     x, sr = sf.read(src, dtype="float32", always_2d=True)
     if x.shape[1] == 1:
         x = np.repeat(x, 2, axis=1)

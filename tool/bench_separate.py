@@ -37,7 +37,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "host"))
 
 BENCH = os.path.join(ROOT, "tool", "logs", "sep_bench")
-DEFAULT_SRC = r"C:/Users/Administrator/Downloads/老狼&王婧_想把我唱给你听.flac"
+# 没有默认素材：评测必须显式给 --src（原版写死了某台机器上的下载路径，
+# 别人克隆下来直接跑会 FileNotFoundError）。
+DEFAULT_SRC = None
 
 
 def load_src(src, secs, start):
@@ -233,7 +235,7 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
 
     r = sub.add_parser("run")
-    r.add_argument("--src", default=DEFAULT_SRC)
+    r.add_argument("--src", default=DEFAULT_SRC, required=(DEFAULT_SRC is None))
     r.add_argument("--secs", type=float, default=45.0)
     r.add_argument("--start", type=float, default=0.0)
     r.add_argument("--tag", required=True)
