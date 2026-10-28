@@ -55,7 +55,7 @@
 | `docs/` | 全部 Markdown 文档（布置说明、验收报告、分离算法精校、接线表…） | `docs/images/` 放插图 |
 | `samples/` | 三个年龄变声试听件（16 bit WAV） | 其余对比素材（`ab_compare*/`、`demo/`，约 75 MB）已移出仓库 |
 | `vivado_prj/` | Vivado 工程、`.bit` 比特流、时序 / 资源报告 | 可由 `tool/run_impl.tcl` 重新生成 |
-| `dist/` | **最终产物**（文件夹版 exe） | 见下；`.gitignore` 已排除，不进仓库 |
+| `dist/` | **最终产物**（文件夹版 exe） | 见下；`.gitignore` 已排除 —— **克隆后没有这个目录**，按 `host/build_exe.bat` 自己打一份即可 |
 | `LICENSE` | MIT | |
 | `.gitignore` | 构建产物 / 运行日志 / 大文件的忽略规则 | |
 | `_cleanup_20261028/` | 本次整理移出的旧包、构建中间目录、评测音频 | 确认无误后可整目录删除 |
