@@ -1,0 +1,75 @@
+# ---------------------------------------------------------------- 构建产物
+# 打包输出（文件夹版 exe，约 143 MB / 1700 个文件）—— 用 host/build_exe.bat 重新生成
+dist/
+dist_ai/
+dist_new*/
+build_onedir*/
+build_pw/
+work/
+
+# ---------------------------------------------------------------- Vivado
+# 工程目录里有大量绝对路径与中间文件，克隆到别的机器必然失效；
+# 但比特流是要烧的产物，单独放行（2.1 MB，可接受）。
+vivado_prj/**
+!vivado_prj/voice_changer.bit
+*.jou
+*.log
+!docs/**/*.log
+.Xil/
+xsim.dir/
+xvlog.log
+xvlog.pb
+*.wdb
+*.str
+webtalk*.jou
+
+# ---------------------------------------------------------------- 第三方二进制
+# openocd / ST-Link 驱动 / VB-Cable 安装包（约 20 MB）。
+# 它们不是本工程的代码，且各平台版本升级频繁 —— 按 README 的说明自行下载。
+tool/thirdparty/
+
+# ---------------------------------------------------------------- MCU 固件产物
+# 源码（.c/.h/.ld/.s）进仓库，编译产物不进：重新编译只要 make/Keil 打开工程。
+mcu/build/
+*.elf
+*.hex
+*.map
+*.o
+*.d
+*.lst
+*.axf
+
+# ---------------------------------------------------------------- 运行与调试输出
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+host/_selftest.txt
+host/_ai_check.txt
+host/_diag.txt
+host/_selftest_*.txt
+_selftest.txt
+*.tmp
+
+# ---------------------------------------------------------------- 外部 AI 运行时
+# torch / demucs 权重不进仓库（4.8 GB）。轻量版运行时从用户级 site-packages 挂载。
+*.pt
+*.pth
+*.onnx
+*.safetensors
+models/
+*.cache/
+
+# ---------------------------------------------------------------- 整理时的暂存区
+# 2026-10-28 结构化时把旧发布包、构建中间目录、评测音频移到这里。
+# 确认无用后整目录删除，然后把这行也删掉。
+_cleanup_*/
+
+# ---------------------------------------------------------------- 编辑器 / 系统
+.workbuddy/
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini

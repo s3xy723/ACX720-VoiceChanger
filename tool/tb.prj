@@ -1,0 +1,8 @@
+verilog work "C:/Users/s3xy/WorkBuddy/2026-10-10-21-21-17/acx720_voice_changer/rtl/wave_rom.v"
+verilog work "C:/Users/s3xy/WorkBuddy/2026-10-10-21-21-17/acx720_voice_changer/rtl/wm8731_config.v"
+verilog work "C:/Users/s3xy/WorkBuddy/2026-10-10-21-21-17/acx720_voice_changer/rtl/i2s_if.v"
+verilog work "C:/Users/s3xy/WorkBuddy/2026-10-10-21-21-17/acx720_voice_changer/rtl/pitch_shift.v"
+verilog work "C:/Users/s3xy/WorkBuddy/2026-10-10-21-21-17/acx720_voice_changer/rtl/effect_aux.v"
+verilog work "C:/Users/s3xy/WorkBuddy/2026-10-10-21-21-17/acx720_voice_changer/rtl/voice_proc.v"
+verilog work "C:/Users/s3xy/WorkBuddy/2026-10-10-21-21-17/acx720_voice_changer/rtl/voice_changer_top.v"
+verilog work "C:/Users/s3xy/WorkBuddy/2026-10-10-21-21-17/acx720_voice_changer/sim_src/tb_top.v"

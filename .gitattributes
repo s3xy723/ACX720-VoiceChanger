@@ -1,0 +1,33 @@
+# 统一换行：文本走 LF，Windows 专有文件保持 CRLF
+* text=auto eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.v    text eol=lf
+*.sv   text eol=lf
+*.tcl  text eol=lf
+*.py   text eol=lf
+*.md   text eol=lf
+*.json text eol=lf
+
+# 二进制：不要让 Git 做 diff/合并
+*.wav   binary
+*.flac  binary
+*.mp3   binary
+*.ogg   binary
+*.bit   binary
+*.bin   binary
+*.elf   binary
+*.hex   binary
+*.exe   binary
+*.dll   binary
+*.pyd   binary
+*.png   binary
+*.jpg   binary
+*.ico   binary
+*.pdf   binary
+
+# GitHub 语言统计：把 RTL 与固件算进来，别让 Python 一家独大
+*.v     linguist-language=Verilog
+*.xdc   linguist-language=XDC
+*.tcl   linguist-language=Tcl
